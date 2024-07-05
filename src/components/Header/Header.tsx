@@ -1,17 +1,20 @@
+import { HeaderProps } from "./header";
+import Stats from "../Stats/Stats";
+
 const style = {
-  heading: `text-3xl font-medium italic mb-7`,
+  header: `flex justify-between items-center mb-6`,
+  heading: `text-3xl font-medium italic`,
   notItalic: `not-italic`,
-  separator: `opacity-[0.8] mb-6`,
+  separator: `opacity-75 mb-6`,
 };
 
-export default function Header() {
+export default function Header({ tasks }: HeaderProps) {
   return (
-    <div>
+    <div className={style.header}>
       <h3 className={style.heading}>
         <span className={style.notItalic}>📝</span> Todo App
       </h3>
-
-      <hr className={style.separator} />
+      <Stats tasks={tasks} />
     </div>
   );
 }

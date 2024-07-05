@@ -2,7 +2,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 
 import { TaskItemProps } from "./task.item";
 
-const style = {
+const styles = {
   li: ` flex justfify-between items-center px-5 py-2.5 mb-7 relative`,
   todoItemAfter: `w-[88%] h-[1.05px] absolute left-[10%] bottom-[-0.4rem] opacity-80 bg-[#e9ecef]`,
   leftBox: `flex items-center grow`,
@@ -22,28 +22,28 @@ export default function TaskItem({
   };
 
   return (
-    <li className={style.li}>
-      <div className={style.leftBox}>
+    <li className={styles.li}>
+      <div className={styles.leftBox}>
         <label className="relative">
           <input
             type="checkbox"
             checked={task.isCompleted}
             onChange={() => handleCheckboxChange(task.id)}
-            className={style.checkbox}
+            className={styles.checkbox}
           />
           {task.isCompleted && (
-            <span className={style.checkboxCheckmark}></span>
+            <span className={styles.checkboxCheckmark}></span>
           )}
         </label>
 
         <span
-          className={task.isCompleted ? style.completed : style.incompleted}
+          className={task.isCompleted ? styles.completed : styles.incompleted}
         >
           {task.taskDescription}
         </span>
       </div>
 
-      <span className={style.todoItemAfter}></span>
+      <span className={styles.todoItemAfter}></span>
 
       <button onClick={() => onDeleteTask(task.id)}>
         <FaRegTrashAlt color="#748ffc" size={24} />

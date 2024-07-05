@@ -3,7 +3,7 @@ import {} from "react";
 import TaskItem from "../TaskItem/TaskItem";
 import { TaskListProps } from "./task.list";
 
-const style = {
+const styles = {
   taskList: `list-none`,
 };
 
@@ -13,7 +13,7 @@ export default function TaskList({
   onCheckTask,
 }: TaskListProps) {
   return (
-    <ul className={style.taskList}>
+    <ul className={styles.taskList}>
       {tasks.map((task) => (
         <TaskItem
           task={task}

@@ -1,7 +1,4 @@
 import { useEffect, useState } from "react";
-import { TaskEntity } from "./TaskItem/task.item";
-import Header from "./Header/Header";
-import InputForm from "./InputForm/InputForm";
 import {
   collection,
   deleteDoc,
@@ -11,6 +8,10 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { db } from "../firebase/firabase.config";
+
+import { TaskEntity } from "./TaskItem/task.item";
+import Header from "./Header/Header";
+import InputForm from "./InputForm/InputForm";
 import TaskList from "./TaskList/TaskList";
 
 const style = {
@@ -81,7 +82,7 @@ const TodoApp = () => {
   return (
     <div className={style.background}>
       <div className={style.container}>
-        <Header />
+        <Header tasks={tasks} />
         <InputForm />
         <TaskList
           tasks={tasks}
