@@ -17,11 +17,6 @@ export default function InputForm() {
   const [taskName, setTaskName] = useState<string>("");
 
   // Create task
-
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTaskName(e.target.value);
-  };
-
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -38,6 +33,10 @@ export default function InputForm() {
     } catch (err) {
       console.error("Error adding document: ", err);
     }
+  };
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setTaskName(e.target.value);
   };
 
   return (
