@@ -1,6 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
-// import { InputFormProps } from "./input.form.type";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -14,29 +13,29 @@ const style = {
 };
 
 export default function InputForm() {
-  const [taskName, setTaskName] = useState<string>("");
+  const [taskDescription, setTaskDescription] = useState<string>("");
 
   // Create task
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (taskName.trim() === "") return;
+    if (taskDescription.trim() === "") return;
 
     try {
       await addDoc(collection(db, "tasks"), {
         id: uuidv4(),
-        taskName,
+        taskDescription,
         isCompleted: false,
       });
 
-      setTaskName("");
+      setTaskDescription("");
     } catch (err) {
       console.error("Error adding document: ", err);
     }
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTaskName(e.target.value);
+    setTaskDescription(e.target.value);
   };
 
   return (
@@ -45,7 +44,7 @@ export default function InputForm() {
         type="text"
         placeholder="Add new task"
         className={style.formInput}
-        value={taskName}
+        value={taskDescription}
         onChange={handleInputChange}
       />
 
